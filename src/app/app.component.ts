@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import { Theme } from './types/themeOption';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +8,42 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'spotify-ui';
+
+  options: Theme[] = [
+    {
+      name: 'Spotify Light',
+      id: 'spotify-light'
+    },
+    {
+      name: 'Material Light',
+      id: 'material-light'
+    },
+    {
+      name: 'Material Dark',
+      id: 'material-dark'
+    },
+    {
+      name: 'Spotify Dark',
+      id: 'spotify-dark'
+    },
+  ];
+  currentOption: Theme = this.options[0];
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.changeTheme(this.currentOption);
+  }
+
+  toggleOptions(optionDom: HTMLElement): void {
+    if (optionDom.classList.contains('open')) {
+      optionDom.classList.remove('open');
+    } else {
+      optionDom.classList.add('open');
+    }
+  }
+
+  changeTheme(option: Theme) {
+    this.document.body.classList.remove(this.currentOption.id);
+    this.document.body.classList.add(option.id);
+    this.currentOption = option;
+  }
 }

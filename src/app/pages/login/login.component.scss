@@ -1,0 +1,15 @@
+:host ::ng-deep {
+  .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    padding-bottom: 0.75em;
+  }
+}
+
+.page {
+  max-width: 320px;
+  margin: auto;
+  padding: 10px;
+}
+
+.logo img {
+  width: 100px;
+}
