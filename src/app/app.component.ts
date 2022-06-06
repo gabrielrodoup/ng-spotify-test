@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
+import { ThemeService } from './services/theme.service';
 import { Theme } from './types/themeOption';
 @Component({
   selector: 'app-root',
@@ -29,7 +30,7 @@ export class AppComponent {
   ];
   currentOption: Theme = this.options[0];
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor(@Inject(DOCUMENT) private document: Document, private themeService: ThemeService) {
     this.changeTheme(this.currentOption);
   }
 
@@ -42,8 +43,9 @@ export class AppComponent {
   }
 
   changeTheme(option: Theme) {
-    this.document.body.classList.remove(this.currentOption.id);
-    this.document.body.classList.add(option.id);
+    // this.document.body.classList.remove(this.currentOption.id);
+    // this.document.body.classList.add(option.id);
+    this.themeService.toggleDarkTheme(this.currentOption.id, option.id);
     this.currentOption = option;
   }
 }

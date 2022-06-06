@@ -1,25 +1,5 @@
 @use '@angular/material' as mat;
-@use 'sass:map';
-
 @include mat.core();
-
-$material-primary: mat.define-palette(mat.$indigo-palette, 500);
-$material-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$material-warn: mat.define-palette(mat.$red-palette);
-$material-theme: mat.define-light-theme((
- color: (
-   primary: $material-primary,
-   accent: $material-accent,
-   warn: $material-warn,
- )
-));
-$material-dark-theme: mat.define-dark-theme((
-  color: (
-    primary: $material-primary,
-    accent: $material-accent,
-    warn: $material-warn,
-  )
-));
 
 $spotify-primary: mat.define-palette(mat.$green-palette, 600);
 $spotify-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
@@ -31,48 +11,13 @@ $spotify-theme: mat.define-light-theme((
    warn: $spotify-warn,
  )
 ));
-$spotify-dark-theme: mat.define-dark-theme((
-  color: (
-    primary: $spotify-primary,
-    accent: $spotify-accent,
-    warn: $spotify-warn,
-  )
-));
-
-
-
-@mixin color($theme) {
-  $color-config: mat.get-color-config($theme);
-  $primary-palette: map.get($color-config, 'primary');
-
-
-  .primary-text {
-    color: mat.get-color-from-palette($primary-palette, 500);
-  }
-}
-
-body.material-light {
-  background-color: #fff;
-  @include mat.all-component-themes($material-theme);
-  @include color($material-theme);
-}
-
-body.material-dark {
-  background-color: #000;
-  @include mat.all-component-themes($material-dark-theme);
-  @include color($material-dark-theme);
-}
 
 body.spotify-light {
   background-color: #fff;
   @include mat.all-component-themes($spotify-theme);
-  @include color($spotify-theme);
-}
-
-body.spotify-dark {
-  background-color: #000;
-  @include mat.all-component-themes($spotify-dark-theme);
-  @include color($spotify-dark-theme);
+  .primary-text {
+    color: mat.get-color-from-palette($spotify-primary, 600);
+  }
 }
 
 body {

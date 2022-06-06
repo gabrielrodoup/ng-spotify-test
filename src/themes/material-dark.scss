@@ -1,0 +1,22 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$material-primary: mat.define-palette(mat.$indigo-palette, 600);
+$material-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$material-warn: mat.define-palette(mat.$red-palette);
+$material-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $material-primary,
+    accent: $material-accent,
+    warn: $material-warn,
+  )
+));
+
+body.material-dark {
+  background-color: #000;
+  @include mat.all-component-themes($material-dark-theme);
+
+  .primary-text {
+    color: mat.get-color-from-palette($material-primary, 600);
+  }
+}

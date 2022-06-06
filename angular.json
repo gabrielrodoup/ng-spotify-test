@@ -35,7 +35,27 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/theme.scss"
+              "src/theme.scss",
+              {
+                "input": "src/themes/material-dark.scss",
+                "bundleName": "material-dark-theme",
+                "inject": false
+              },
+              {
+                "input": "src/themes/material-light.scss",
+                "bundleName": "material-light-theme",
+                "inject": false
+              },
+              {
+                "input": "src/themes/spotify-dark.scss",
+                "bundleName": "spotify-dark-theme",
+                "inject": false
+              },
+              {
+                "input": "src/themes/spotify-light.scss",
+                "bundleName": "spotify-light-theme",
+                "inject": false
+              }
             ],
             "scripts": []
           },
