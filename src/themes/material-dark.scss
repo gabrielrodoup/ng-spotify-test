@@ -13,7 +13,7 @@ $material-dark-theme: mat.define-dark-theme((
 ));
 
 body.material-dark {
-  background-color: #000;
+  background-color: #151515;
   @include mat.all-component-themes($material-dark-theme);
 
   .primary-text {

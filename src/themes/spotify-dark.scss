@@ -14,7 +14,7 @@ $spotify-dark-theme: mat.define-dark-theme((
 
 
 body.spotify-dark {
-  background-color: #000;
+  background-color: #151515;
   @include mat.all-component-themes($spotify-dark-theme);
 
   .primary-text {

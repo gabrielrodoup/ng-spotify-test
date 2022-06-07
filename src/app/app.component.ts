@@ -12,10 +12,6 @@ export class AppComponent {
 
   options: Theme[] = [
     {
-      name: 'Spotify Light',
-      id: 'spotify-light'
-    },
-    {
       name: 'Material Light',
       id: 'material-light'
     },
